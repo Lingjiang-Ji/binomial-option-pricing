@@ -44,14 +44,26 @@ Finally, the value at the root node is the option’s **fair price today**.
 This implementation clearly shows how the **risk-neutral assumption** and **backward induction** work in discrete-time pricing.
 
 ## Sample Usage
-American put option (5 steps):
-am_put_5 = BinomialOption(100,100,0.05, 0.2, 1.0, 5, option_type='put', american=True)
-am.price() = 6.36782974845113
+American put option:
 
-European call option (5 steps):
-eu_call_5 = BinomialOption(100,100,0.05, 0.2, 1.0, 5, option_type='call', american=False)
-eu_call_5.price() = 10.805933920410085
+put_option = BinomialOption(S0=100, K=100, r=0.05, sigma=0.2, T=1, n=100, option_type='put', american=True)
 
-eu_put_5 = BinomialOption(100,100,0.05, 0.2, 1.0, 5, option_type='put', american=False)
-eu_put_5.price() = 5.928876370481545
+print(f"American Put Option Price: {put_option.price():.4f}")
 
+American Put Option Price: 6.3678
+
+European call option :
+
+call_option = BinomialOption(S0=100, K=100, r=0.05, sigma=0.2, T=1, n=100, option_type='call', american=False)
+
+print(f"European Call Option Price: {call_option.price():.4f}")
+
+European Call Option Price: 10.4306
+
+European put option:
+
+put_option = BinomialOption(S0=100, K=100, r=0.05, sigma=0.2, T=1, n=100, option_type='put', american=False)
+
+print(f"European Put Option Price: {put_option.price():.4f}")
+
+European Put Option Price： 5.5536
